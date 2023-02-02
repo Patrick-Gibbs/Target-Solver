@@ -38,10 +38,10 @@ def target(centre_letter, outer_letters, dictionary):
                 valid_words.append(word)
     # valid words is the solution to the puzzle
     return valid_words
-
+words = ""
 # define letters in puzzle
 outer_letters = 'opaeerrt'
-inner_letter = 'b'
+centre_letter = 'b'
 
 # open dictionary, where each line is the txt file is an english word
 # all_english_words.txt contains all words in english language
@@ -51,7 +51,7 @@ all_english_words= f.read().split('\n')
 f.close()
 
 # find all words that satify the target puzzle
-valid_words = target(outer_letters, inner_letter, all_english_words)
+valid_words = target(centre_letter, outer_letters, all_english_words)
 
 # print the result
 print()
@@ -63,3 +63,9 @@ print("7 letter words:")
 for word in valid_words:
     if len(word) == 7:
         print('\t', word)
+
+# open the file.
+f = open("myfile.txt", 'r')
+contents = f.read()
+print(contents)
+f.close()
