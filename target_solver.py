@@ -1,6 +1,6 @@
-def target(centre_letter, outer_letters, dictionary='all_english_words.txt'):
+def target_solver(centre_letter, outer_letters, dictionary='all_english_words.txt'):
     """
-    finds a solution to the target puzzle:
+    finds a solutions to the target puzzle:
         Find words of four letters or more. 
         Every word must include the centre letter and each letter is used once only. 
         Find at least one nine-letter word. No colloquial or foreign words, 
@@ -40,28 +40,41 @@ def target(centre_letter, outer_letters, dictionary='all_english_words.txt'):
     return valid_words
 
 
-# define letters in puzzle
-outer_letters = 'opaeerrt'
-centre_letter = 'b'
 
-# open dictionary, where each line is the txt file is an english word
-# all_english_words.txt contains all words in english language
-f = open("all_english_words.txt")
-# make a list where each element is an english word
-all_english_words= f.read().split('\n')
-f.close()
+def target(centre_letter, outer_letters, dictionary='all_english_words.txt'):
+    """ 
+    Prints a formatted solution for target to terminal 
+    
+    input:
+        `centre_letter`: str
+            the center letter of the puzzle which must be in each word
+        `outer_letters`: str
+            a string of size 8, which are other letters that can be used to make up a word
+        `dictionary` : list containing str
+            a list of words that will be checked for the target contraints
+    returns: None
+        prints to std out
+    
+    """
 
-# find all words that satify the target puzzle
-valid_words = target(centre_letter, outer_letters, all_english_words)
+    # open dictionary, where each line is the txt file is an english word
+    # all_english_words.txt contains all words in english language
+    f = open("all_english_words.txt")
+    # make a list where each element is an english word
+    all_english_words= f.read().split('\n')
+    f.close()
 
-# print the result
-print()
-print("Total words found:", len(valid_words))
-print("All valid words:")
-for word in valid_words:
-    print('\t', word)
-print("7 letter words:")
-for word in valid_words:
-    if len(word) == 7:
+    # find all words that satify the target puzzle
+    valid_words = target_solver(centre_letter, outer_letters, all_english_words)
+
+    # print the result
+    print()
+    print("Total words found:", len(valid_words))
+    print("All valid words:")
+    for word in valid_words:
         print('\t', word)
+    print("7 letter words:")
+    for word in valid_words:
+        if len(word) == 7:
+            print('\t', word)
 
