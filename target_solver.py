@@ -1,4 +1,4 @@
-def target(centre_letter, outer_letters, dictionary):
+def target(centre_letter, outer_letters, dictionary='all_english_words.txt'):
     """
     finds a solution to the target puzzle:
         Find words of four letters or more. 
@@ -38,7 +38,8 @@ def target(centre_letter, outer_letters, dictionary):
                 valid_words.append(word)
     # valid words is the solution to the puzzle
     return valid_words
-words = ""
+
+
 # define letters in puzzle
 outer_letters = 'opaeerrt'
 centre_letter = 'b'
@@ -64,8 +65,3 @@ for word in valid_words:
     if len(word) == 7:
         print('\t', word)
 
-# open the file.
-f = open("myfile.txt", 'r')
-contents = f.read()
-print(contents)
-f.close()
